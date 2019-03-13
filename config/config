@@ -12,7 +12,7 @@ QREDIT = "geops,delegatename"
 PHANTOM = "delegatename,delegatename"
 PERSONA = "delegatename,delegatename"
 RIPA = "delegatename,delegatename"
-SWAPBLOCKS = "delegatename,delegatename"
+SWAPBLOCKS = "geops,delegatename"
 BLOCKPOOL = "delegatename,delegatename"
 
 # API settings
