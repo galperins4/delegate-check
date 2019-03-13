@@ -3,11 +3,6 @@
 from config.config import Config
 from util.util import Util
 import asyncio
-#import aiohttp
-#import aioboto3
-#from datetime import datetime
-#from datetime import timedelta
-#from shutil import copy2
 
 
 #app = Chalice(app_name='delcheck')
