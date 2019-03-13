@@ -29,4 +29,4 @@ if __name__ == '__main__':
         # multiple delegates to process
         else:
             for j in c.delegates[i]:
-                print(j)
+                print(i,j, c.networks[i][2])
