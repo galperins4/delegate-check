@@ -21,6 +21,7 @@ class Config():
         self.aws_region = os.getenv("AWS_REGION")
         self.phone = os.getenv("PHONE")
     
+    
     def load_delegates(self):
         self.ark = os.getenv("ARK").split(',')
         self.dark = os.getenv("DARK").split(',')
