@@ -1,24 +1,31 @@
-#from chalice import Chalice
-#from util.async import Async
+from chalice import Chalice
 from config.config import Config
 from util.util import Util
 import asyncio
 
 
-#app = Chalice(app_name='delcheck')
+app = Chalice(app_name='delegate-check')
 
-'''
+
 @app.route('/')
 def index():
     delegate_check()
     return {'status': 'success'}
 
-'''
 def delegate_check():
-    pass
+    c = Config()
+    u = Util(c)
+    tasks = get_tasks(c)
+    
+    # Async Loop
+    loop = asyncio.get_event_loop()
+    try:
+        loop.run_until_complete(asyncio.wait(tasks))
+    finally:
+        loop.close()
 
 
-def get_tasks():
+def get_tasks(c):
     tasks_list = []
     for i in c.delegates:
         # only 1 delegate to process
@@ -34,7 +41,7 @@ def get_tasks():
                     tasks_list.append(asyncio.ensure_future(u.retrieve(i,j,c.networks[i][2])))
     return tasks_list
 
-                    
+'''                  
 if __name__ == '__main__':
     c = Config()
     u = Util(c)
@@ -46,3 +53,4 @@ if __name__ == '__main__':
         loop.run_until_complete(asyncio.wait(tasks))
     finally:
         loop.close()
+'''
