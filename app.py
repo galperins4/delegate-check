@@ -27,3 +27,6 @@ if __name__ == '__main__':
             #tasks.append(asyncio.ensure_future(retrieve(i,c.delegates[i][0], c.networks[i][2]))
     
         # multiple delegates to process
+        else:
+            for j in c.delegates[i]:
+                print(j)
