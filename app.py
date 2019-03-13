@@ -42,7 +42,7 @@ def get_tasks():
                     
 if __name__ == '__main__':
     c = Config()
-    u = Util()
+    u = Util(c)
     tasks = get_tasks()
     
     # Async Loop
