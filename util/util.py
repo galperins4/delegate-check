@@ -27,15 +27,32 @@ class Util:
             
             
     async def retrieve(self,network,delegate,version):
-        result = await self.api_get(self.config.apis[network] + '/delegates/' + delegate)
-        rank = str(result['data']['rank'])
-        if result['data']['rank'] <= self.config.networks[network][0]:
-            active = 'yes'
+        if version == 'v2':
+            result = await self.api_get(self.config.apis[network] + '/delegates/' + delegate)
+            rank = str(result['data']['rank'])
+            if result['data']['rank'] <= self.config.networks[network][0]:
+                active = 'yes'
+            else:
+                active = 'no'
+            rank = rank + '/' + str(self.config.networks[network][0])
+            timestamp = result['data']['blocks']['last']['timestamp']['unix']
+            utc_remote = datetime.utcfromtimestamp(timestamp)
         else:
-            active = 'no'
-        rank = rank + '/' + str(self.config.networks[network][0])
-        timestamp = result['data']['blocks']['last']['timestamp']['unix']
-        utc_remote = datetime.utcfromtimestamp(timestamp)
+            result = await self.api_get(self.config.apis[network] + '/delegates/get?username=' + delegate)
+            rank = str(result['delegate']['rate'])
+            if result['delegate']['rate'] <= self.config.networks[network][0]:
+                active = 'yes'
+            else:
+                active = 'no'
+            rank = rank + '/' + str(self.config.networks[network][0])
+            pubkey = str(result['delegate']['publicKey'])
+            result = await self.api_get(self.config.apis[network] + '/blocks?generatorPublicKey=' + pubkey + '&limit=1')
+            timestamp = result['blocks'][0]['timestamp']
+                utc_remote = datetime(self.config.epochs[network][0], self.config.epochs[network][1], self.config.epochs[network][2], 
+                                      self.config.epochs[network][3], self.config.epochs[network][4], 
+                                      self.config.epochs[network][5]) + timedelta(seconds=timestamp)
+
+        
         utc_local = datetime.utcnow().replace(microsecond=0)
         delta = int((utc_local - utc_remote).total_seconds())
         lb = str(int(round(delta/60)))
