@@ -31,7 +31,7 @@ class Config():
         ripa = os.getenv("RIPA").split(',')
         swapblocks = os.getenv("SWAPBLOCKS").split(',')
         blockpool = os.getenv("BLOCKPOOL").split(',')
-        delegates = [ark,dark,qredit,phantom,persona,ripa,swapblocks, blockpool]
+        delegates = self.format_dict(ark,dark,qredit,phantom,persona,ripa,swapblocks, blockpool
         
         return delegates
 
@@ -45,7 +45,7 @@ class Config():
         ripa_api = os.getenv("RIPA_API")
         swapblocks_api = os.getenv("SWAPBLOCKS_API")
         blockpool_api = os.getenv("BLOCKPOOL_API")
-        api = [ark_api,dark_api,qredit_api,phantom_api,persona_api,ripa_api,swapblocks_api,blockpool_api]
+        api = self.format_dict(ark_api,dark_api,qredit_api,phantom_api,persona_api,ripa_api,swapblocks_api,blockpool_api)
         
         return api
 
@@ -59,7 +59,7 @@ class Config():
         ripa_net = os.getenv("RIPA_NET").split(',')
         swapblocks_net = os.getenv("SWAPBLOCKS_NET").split(',')
         blockpool_net = os.getenv("BLOCKPOOL_NET").split(',')
-        network = [ark_net,dark_net,qredit_net,phantom_net,persona_net,ripa_net,swapblocks_net,blockpool_net]
+        network = self.format_dict(ark_net,dark_net,qredit_net,phantom_net,persona_net,ripa_net,swapblocks_net,blockpool_net)
     
         return network
     
@@ -75,3 +75,16 @@ class Config():
                  "blockpool":blockpool_epoch}
         
         return epoch
+    
+    
+    def format_dict(self,a,b,c,d,e,f,g,h):
+        formatted_dict = {'ark':a,
+                          'dark':b, 
+                          'qredit':c,
+                          'phantom':d,
+                          'persona':e,
+                          'ripa':f,
+                          'swapblocks':g,
+                          'blockpool':h}
+        
+        return formatted_dict
