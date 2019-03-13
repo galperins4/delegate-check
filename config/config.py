@@ -51,7 +51,7 @@ class Config():
 
     
     def load_network(self):
-        ark_net = self.format_network(os.getenv("ARK_NET").split(',')))
+        ark_net = self.format_network(os.getenv("ARK_NET").split(','))
         dark_net = self.format_network(os.getenv("DARK_NET").split(','))
         qredit_net = self.format_network(os.getenv("QREDIT_NET").split(','))
         phantom_net = self.format_network(os.getenv("PHANTOM_NET").split(','))
