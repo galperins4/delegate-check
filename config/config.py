@@ -15,8 +15,11 @@ class Config():
         
 
     def load_sns(self):
-        pass
-    
+        self.sns_enabled = os.getenv("SNS_ENABLED")
+        self.aws_key_id = os.getenv("AWS_KEY_ID")
+        self.aws_secret_key = os.getenv("AWS_SECRET_KEY")
+        self.aws_region = os.getenv("AWS_REGION")
+        self.phone = os.getenv("PHONE")
     
     def load_delegates(self):
         pass
