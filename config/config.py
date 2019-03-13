@@ -9,9 +9,9 @@ class Config():
         load_dotenv(env_path)
         self.load_sns()
         self.delegates = self.load_delegates()
-        self.load_api()
-        self.load_network()
-        self.load_epoch()
+        self.apis = self.load_api()
+        self.networks = self.load_network()
+        self.epochs = self.load_epoch()
         
 
     def load_sns(self):
@@ -51,14 +51,14 @@ class Config():
 
     
     def load_network(self):
-        ark_net = os.getenv("ARK_NET").split(',')
-        dark_net = os.getenv("DARK_NET").split(',')
-        qredit_net = os.getenv("QREDIT_NET").split(',')
-        phantom_net = os.getenv("PHANTOM_NET").split(',')
-        persona_net = os.getenv("PERSONA_NET").split(',')
-        ripa_net = os.getenv("RIPA_NET").split(',')
-        swapblocks_net = os.getenv("SWAPBLOCKS_NET").split(',')
-        blockpool_net = os.getenv("BLOCKPOOL_NET").split(',')
+        ark_net = self.format_network(os.getenv("ARK_NET").split(',')))
+        dark_net = self.format_network(os.getenv("DARK_NET").split(','))
+        qredit_net = self.format_network(os.getenv("QREDIT_NET").split(','))
+        phantom_net = self.format_network(os.getenv("PHANTOM_NET").split(','))
+        persona_net = self.format_network(os.getenv("PERSONA_NET").split(','))
+        ripa_net = self.format_network(os.getenv("RIPA_NET").split(','))
+        swapblocks_net = self.format_network(os.getenv("SWAPBLOCKS_NET").split(','))
+        blockpool_net = self.format_network(os.getenv("BLOCKPOOL_NET").split(','))
         network = self.format_dict(ark_net,dark_net,qredit_net,phantom_net,persona_net,ripa_net,swapblocks_net,blockpool_net)
     
         return network
@@ -88,3 +88,9 @@ class Config():
                           'blockpool':h}
         
         return formatted_dict
+
+                                     
+    def format_network(self, n):
+        return [int(n[0]), int(n[1]), n[2]]
+                                     
+                                     
