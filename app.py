@@ -1,10 +1,10 @@
-from chalice import Chalice
+from  flask import Flask
 from config.config import Config
 from util.util import Util
 import asyncio
 
 
-app = Chalice(app_name='delegate-check')
+app = Flask(__name__)
 
 
 @app.route('/')
@@ -41,16 +41,5 @@ def get_tasks(c,u):
                     tasks_list.append(asyncio.ensure_future(u.retrieve(i,j,c.networks[i][2])))
     return tasks_list
 
-'''                  
 if __name__ == '__main__':
-    c = Config()
-    u = Util(c)
-    tasks = get_tasks()
-    
-    # Async Loop
-    loop = asyncio.get_event_loop()
-    try:
-        loop.run_until_complete(asyncio.wait(tasks))
-    finally:
-        loop.close()
-'''
+    app.run(host="127.0.0.1", threaded=False)
