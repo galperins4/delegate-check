@@ -20,7 +20,8 @@ def delegate_check():
     # Async Loop
     loop = asyncio.get_event_loop()
     try:
-        loop.run_until_complete(asyncio.wait(tasks))
+        out_result = loop.run_until_complete(asyncio.wait(tasks))
+        print(out_result)
     finally:
         loop.close()
 
