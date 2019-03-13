@@ -17,7 +17,7 @@ def delegate_check():
 
 
 if __name__ == '__main__':
-    c = Config
+    c = Config()
     print(c.delegates)
     print(c.apis)
     print(c.networks)
