@@ -18,5 +18,5 @@ def delegate_check():
 
 if __name__ == '__main__':
     c = Config()
-    for k,v in c.delegates:
-        print(k,v)
+    test = [(i,c.delegates[i]) for i in c.delegates]
+    print(test)
