@@ -48,7 +48,7 @@ class Util:
             pubkey = str(result['delegate']['publicKey'])
             result = await self.api_get(self.config.apis[network] + '/blocks?generatorPublicKey=' + pubkey + '&limit=1')
             timestamp = result['blocks'][0]['timestamp']
-                utc_remote = datetime(self.config.epochs[network][0], self.config.epochs[network][1], self.config.epochs[network][2], 
+            utc_remote = datetime(self.config.epochs[network][0], self.config.epochs[network][1], self.config.epochs[network][2], 
                                       self.config.epochs[network][3], self.config.epochs[network][4], 
                                       self.config.epochs[network][5]) + timedelta(seconds=timestamp)
 
