@@ -15,7 +15,7 @@ def index():
 def delegate_check():
     c = Config()
     u = Util(c)
-    tasks = get_tasks(c)
+    tasks = get_tasks(c,u)
     
     # Async Loop
     loop = asyncio.get_event_loop()
@@ -25,7 +25,7 @@ def delegate_check():
         loop.close()
 
 
-def get_tasks(c):
+def get_tasks(c,u):
     tasks_list = []
     for i in c.delegates:
         # only 1 delegate to process
