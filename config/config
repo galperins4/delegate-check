@@ -1,0 +1,42 @@
+# sns settings
+SNS_ENABLED = "no"
+AWS_KEY_ID = "keyId"
+AWS_SECRET_KEY = "secretKey"
+AWS_REGION = "us-east-1" # not all regions support SNS
+PHONE = "+xxxxxxxxxxx"
+
+# delegate settings
+ARK = "delegatename,delegatename"
+DARK = "delegatename,delegatename"
+QREDIT = "delegatename,delegatename"
+PHANTOM = "delegatename,delegatename"
+PERSONA = "delegatename,delegatename"
+RIPA = "delegatename,delegatename"
+SWAPBLOCKS = "delegatename,delegatename"
+BLOCKPOOL = "delegatename,delegatename"
+
+# API settings
+ARK_API = "https://explorer.ark.io/api/v2"
+DARK_API = "https://dexplorer.ark.io/api/v2"
+QREDIT_API = "https://qredit.cloud/api/v2"
+PHANTOM_API = "https://explorer.phantom.org:8443/api/v2"
+PERSONA_API = "https://persona-api.geops.net/api"
+RIPA_API = "http://209.97.137.11:5500/api"
+SWAPBLOCKS_API = "https://api.swapblocks.io/api"
+BLOCKPOOL_API = "http://s01.mc.blockpool.io:9030/api"
+
+# network settings
+ARK_NET = "51,8,v2"
+DARK_NET = "51,8,v2"
+QREDIT_NET = "51,8,v2"
+PHANTOM_NET = "51,8,v2"
+PERSONA_NET = "51,8,v1""
+RIPA_NET = "101,8,v1"
+SWAPBLOCKS_NET = "51,8,v1"
+BLOCKPOOL_NET = "201,15,v1"
+
+# epochs
+PERSONA_EPOCH = "2018,2,1,0,0,0"
+RIPA_EPOCH = "2017,3,21,13,0,0"
+SWAPBLOCKS_EPOCH = "2017,3,21,13,0,0"
+BLOCKPOOL_EPOCH = "2017,3,21,13,0,0"
