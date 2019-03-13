@@ -30,14 +30,12 @@ def get_tasks(c,u):
     for i in c.delegates:
         # only 1 delegate to process
         if len(c.delegates[i]) == 1 and c.delegates[i][0] != 'delegatename':
-            #print(i,c.delegates[i][0], c.networks[i][2])
             tasks_list.append(asyncio.ensure_future(u.retrieve(i,c.delegates[i][0], c.networks[i][2])))
     
         # multiple delegates to process
         else:
             for j in c.delegates[i]:
                 if j != 'delegatename':
-                    #print(i,j, c.networks[i][2])
                     tasks_list.append(asyncio.ensure_future(u.retrieve(i,j,c.networks[i][2])))
     return tasks_list
 
