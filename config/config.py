@@ -31,7 +31,7 @@ class Config():
         ripa = os.getenv("RIPA").split(',')
         swapblocks = os.getenv("SWAPBLOCKS").split(',')
         blockpool = os.getenv("BLOCKPOOL").split(',')
-        delegates = self.format_dict(ark,dark,qredit,phantom,persona,ripa,swapblocks, blockpool
+        delegates = self.format_dict(ark,dark,qredit,phantom,persona,ripa,swapblocks, blockpool)
         
         return delegates
 
