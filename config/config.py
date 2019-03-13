@@ -33,7 +33,14 @@ class Config():
 
 
     def load_api(self):
-        pass
+        self.ark_api = os.getenv("ARK_API")
+        self.dark_api = os.getenv("DARK_API")
+        self.qredit_api = os.getenv("QREDIT_API")
+        self.phantom_api = os.getenv("PHANTOM_API")
+        self.persona_api = os.getenv("PERSONA_API")
+        self.ripa_api = os.getenv("RIPA_API")
+        self.swapblocks_api = os.getenv("SWAPBLOCKS_API")
+        self.blockpool_api = os.getenv("BLOCKPOOL_API")
 
     
     def load_network(self):
