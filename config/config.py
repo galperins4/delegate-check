@@ -65,10 +65,10 @@ class Config():
     
     
     def load_epoch(self):
-        persona_epoch = os.getenv("PERSONA_EPOCH").split(',')
-        ripa_epoch = os.getenv("RIPA_EPOCH").split(',')
-        swapblocks_epoch = os.getenv("SWAPBLOCKS_EPOCH").split(',')
-        blockpool_epoch = os.getenv("BLOCKPOOL_EPOCH").split(',')
+        persona_epoch = self.format_str(os.getenv("PERSONA_EPOCH").split(','))
+        ripa_epoch = self.format_str(os.getenv("RIPA_EPOCH").split(','))
+        swapblocks_epoch = self.format_str(os.getenv("SWAPBLOCKS_EPOCH").split(','))
+        blockpool_epoch = self.format_str(os.getenv("BLOCKPOOL_EPOCH").split(','))
         epoch = {"persona":persona_epoch,
                  "ripa":ripa_epoch,
                  "swapblocks":swapblocks_epoch,
@@ -93,4 +93,7 @@ class Config():
     def format_network(self, n):
         return [int(n[0]), int(n[1]), n[2]]
                                      
+    
+    def format_str(self,n):
+        return [int(n[0]), int(n[1]), int(n[2]), int(n[3]), int(n[4])
                                      
