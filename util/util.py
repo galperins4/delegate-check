@@ -7,8 +7,8 @@ from shutil import copy2
 
 
 class Util:
-    def __init__(self):
-        pass
+    def __init__(self, config):
+        self.config = config
         
 
     async def notifications(msg):
