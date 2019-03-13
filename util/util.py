@@ -67,6 +67,6 @@ class Util:
         
         print('Network: ' + network + ' | Delegate: ' + delegate + ' | Rank: ' + rank + ' | Active: ' + active + ' | Last Block: ' + lb + ' min ago | Missed Block: ' + miss)
 
-        return {'Network':network, 'Delegate':delegate, 'Rank':rank, 'Active':active, 'Last Block': lb, 'Missed Block': miss}
-                
+        test = {'Network':network, 'Delegate':delegate, 'Rank':rank, 'Active':active, 'Last Block': lb, 'Missed Block': miss}
+        print(test)  
                 
