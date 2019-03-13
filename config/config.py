@@ -44,8 +44,18 @@ class Config():
 
     
     def load_network(self):
-        pass
+        self.ark_net = os.getenv("ARK_NET").split(',')
+        self.dark_net = os.getenv("DARK_NET").split(',')
+        self.qredit_net = os.getenv("QREDIT_NET").split(',')
+        self.phantom_net = os.getenv("PHANTOM_NET").split(',')
+        self.persona_net = os.getenv("PERSONA_NET").split(',')
+        self.ripa_net = os.getenv("RIPA_NET").split(',')
+        self.swapblocks_net = os.getenv("SWAPBLOCKS_NET").split(',')
+        self.blockpool_net = os.getenv("BLOCKPOOL_NET").split(',')
     
     
     def load_epoch(self):
-        pass
+        self.persona_epoch = os.getenv("PERSONA_EPOCH").split(',')
+        self.ripa_epoch = os.getenv("RIPA_EPOCH").split(',')
+        self.swapblocks_epoch = os.getenv("SWAPBLOCKS_EPOCH").split(',')
+        self.blockpool_epoch = os.getenv("BLOCKPOOL_EPOCH").split(',')
