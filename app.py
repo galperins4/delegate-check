@@ -22,8 +22,8 @@ if __name__ == '__main__':
     
     for i in c.delegates:
         # only 1 delegate to process
-        if len(c.delegates[i]) == 1 and c.delegates[i] != 'delegatename':
+        if len(c.delegates[i]) == 1 and c.delegates[i][0] != 'delegatename':
             print(i,c.delegates[i][0], c.networks[i][2])
-            #tasks.append(asyncio.ensure_future(retrieve(i,c.delegates[i], c.networks[i][2]))
+            #tasks.append(asyncio.ensure_future(retrieve(i,c.delegates[i][0], c.networks[i][2]))
     
         # multiple delegates to process
