@@ -6,12 +6,12 @@ AWS_REGION = "us-east-1" # not all regions support SNS
 PHONE = "+xxxxxxxxxxx"
 
 # delegate settings
-ARK = "test"
+ARK = "geops"
 DARK = "delegatename"
-QREDIT = "delegatename,delegatename"
+QREDIT = "geops,delegatename"
 PHANTOM = "delegatename,delegatename"
 PERSONA = "delegatename,delegatename"
-RIPA = "delegatename,test2"
+RIPA = "delegatename,delegatename"
 SWAPBLOCKS = "delegatename,delegatename"
 BLOCKPOOL = "delegatename,delegatename"
 
