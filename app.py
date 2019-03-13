@@ -42,4 +42,5 @@ def get_tasks(c,u):
     return tasks_list
 
 if __name__ == '__main__':
-    app.run(host="127.0.0.1", threaded=False)
+    delegate_check()
+    #app.run(host="127.0.0.1", threaded=False)
