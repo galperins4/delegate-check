@@ -69,6 +69,9 @@ class Config():
         ripa_epoch = os.getenv("RIPA_EPOCH").split(',')
         swapblocks_epoch = os.getenv("SWAPBLOCKS_EPOCH").split(',')
         blockpool_epoch = os.getenv("BLOCKPOOL_EPOCH").split(',')
-        epoch = [persona_epoch,ripa_epoch,swapblocks_epoch,blockpool_epoch]
+        epoch = {"persona":persona_epoch,
+                 "ripa":ripa_epoch,
+                 "swapblocks":swapblocks_epoch,
+                 "blockpool":blockpool_epoch}
         
         return epoch
