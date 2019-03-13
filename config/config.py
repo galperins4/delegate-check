@@ -22,7 +22,14 @@ class Config():
         self.phone = os.getenv("PHONE")
     
     def load_delegates(self):
-        pass
+        self.ark = os.getenv("ARK").split(',')
+        self.dark = os.getenv("DARK").split(',')
+        self.qredit = os.getenv("QREDIT").split(',')
+        self.phantom = os.getenv("PHANTOM").split(',')
+        self.persona = os.getenv("PERSONA").split(',')
+        self.ripa = os.getenv("RIPA").split(',')
+        self.swapblocks = os.getenv("SWAPBLOCKS").split(',')
+        self.blockpool = os.getenv("BLOCKPOOL").split(',')
 
 
     def load_api(self):
