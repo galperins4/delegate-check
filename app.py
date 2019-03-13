@@ -18,12 +18,5 @@ def delegate_check():
 
 if __name__ == '__main__':
     c = Config()
-    print(c.delegates)
-    print(c.apis)
-    print(c.networks)
-    print(c.epochs)
-    print(c.sns_enabled)
-    print(c.aws_key_id)
-    print(c.aws_secret_key)
-    print(c.aws_region)
-    print(c.phone)
+    for i in c.delegates:
+        print(i)
