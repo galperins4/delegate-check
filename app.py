@@ -18,13 +18,12 @@ def delegate_check():
 
 if __name__ == '__main__':
     c = Config()
-    n = self.networks
     tasks = []
     
     for i in c.delegates:
         # only 1 delegate to process
         if len(c.delegates[i]) == 1 and c.delegates[i] is not "delegatename":
-            print(i,c.delegates[i], n[i])
-            #tasks.append(asyncio.ensure_future(retrieve(i,c.delegates[i], n[i]))
+            print(i,c.delegates[i], c.networks[i])
+            #tasks.append(asyncio.ensure_future(retrieve(i,c.delegates[i], c.networks[i]))
     
         # multiple delegates to process
