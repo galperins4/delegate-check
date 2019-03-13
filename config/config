@@ -11,7 +11,7 @@ DARK = "delegatename"
 QREDIT = "delegatename,delegatename"
 PHANTOM = "delegatename,delegatename"
 PERSONA = "delegatename,delegatename"
-RIPA = "delegatename,delegatename"
+RIPA = "delegatename,test2"
 SWAPBLOCKS = "delegatename,delegatename"
 BLOCKPOOL = "delegatename,delegatename"
 
