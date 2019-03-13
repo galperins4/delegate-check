@@ -11,7 +11,7 @@ class Util:
         self.config = config
         
 
-    async def notifications(msg):
+    async def notifications(self,msg):
         async with aioboto3.client("sns",
             aws_access_key_id=aws_key_id,
             aws_secret_access_key=aws_secret_key,
@@ -20,30 +20,30 @@ class Util:
                 PhoneNumber=phone,
                 Message=msg)
 
-    async def api_get(url):
+    async def api_get(self,url):
         async with aiohttp.ClientSession() as session:
             async with session.get(url) as resp:
                 return await resp.json()
             
             
-    async def retrieve(network,delegate,version):
-        result = await api_get(nodes[network] + '/delegates/' + delegate)
+    async def retrieve(self,network,delegate,version):
+        result = await self.api_get(self.config.apis[network] + '/delegates/' + delegate)
         rank = str(result['data']['rank'])
-        if result['data']['rank'] <= db[network][0]:
+        if result['data']['rank'] <= self.config.networks[network][0]:
             active = 'yes'
         else:
             active = 'no'
-        rank = rank + '/' + str(db[network][0])
+        rank = rank + '/' + str(self.config.networks[network][0])
         timestamp = result['data']['blocks']['last']['timestamp']['unix']
         utc_remote = datetime.utcfromtimestamp(timestamp)
         utc_local = datetime.utcnow().replace(microsecond=0)
         delta = int((utc_local - utc_remote).total_seconds())
         lb = str(int(round(delta/60)))
-        tworounds = 2 * db[network][0] * db[network][1]
+        tworounds = 2 * self.config.networks[network][0] * self.config.networks[network][1]
         if delta > tworounds:
             miss = 'yes'  
-            if sns_enabled == 'yes' and delta < 2 * tworounds:
-                await notifications(network + ' delegate missed a block!')
+            if self.config.sns_enabled == 'yes' and delta < 2 * tworounds:
+                await self.notifications(network + ' delegate missed a block!')
                 print('Sent SMS!')
         else:
             miss = 'no'
