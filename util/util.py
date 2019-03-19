@@ -59,7 +59,9 @@ class Util:
         tworounds = 2 * self.config.networks[network][0] * self.config.networks[network][1]
         if delta > tworounds:
             miss = 'yes'  
-            if self.config.sns_enabled == 'yes' and delta < 2 * tworounds:
+            #if self.config.sns_enabled == 'yes' and delta < 2 * tworounds:
+            if self.config.sns_enabled == 'yes':
+                print("Sending SMS Notification")
                 await self.notifications(network + ' delegate missed a block!')
                 print('Sent SMS!')
         else:
