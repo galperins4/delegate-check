@@ -13,11 +13,11 @@ class Util:
 
     async def notifications(self,msg):
         async with aioboto3.client("sns",
-            aws_access_key_id=aws_key_id,
-            aws_secret_access_key=aws_secret_key,
-            region_name=aws_region) as client:
+            aws_access_key_id=self.config.aws_key_id,
+            aws_secret_access_key=self.config.aws_secret_key,
+            region_name=self.config.aws_region) as client:
             await client.publish(
-                PhoneNumber=phone,
+                PhoneNumber=self.config.phone,
                 Message=msg)
 
     async def api_get(self,url):
